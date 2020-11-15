@@ -25,9 +25,9 @@ var app = new Vue({
                 let resp = JSON.parse(Http.response);
 
                 resp.forEach(cls => {
-                    // cls.prettyName = [cls.name.slice(0, 4), " ", cls.name.slice(4)].join("");
-                    // Make this better
-                    cls.prettyName = cls.name;
+                    firstDigit = cls.name.match(/\d/);
+                    index = cls.name.indexOf(firstDigit);
+                    cls.prettyName = [cls.name.slice(0, index), " ", cls.name.slice(index)].join("");
                 });
 
                 this.classes = resp;
