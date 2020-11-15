@@ -3,6 +3,7 @@ const url_base = "https://api.github.com/repos/llamicron/notes/contents/classes/
 const url_end = "?recursive=1";
 // I know, I know, this isn't secure. I don't care.
 const token = ["7b", "b6", "0a", "c2", "76", "fc", "5e", "e9", "8e", "e3", "d0", "09", "ab", "aa", "ef", "85", "ac", "14", "3f", "0f"];
+const allowed_files = ["pdf", "md"]
 
 var app = new Vue({
     el: "#content",
@@ -48,7 +49,10 @@ var app = new Vue({
                     console.log("not found");
                     this.notes = [];
                 } else {
-                    this.notes = resp;
+                    this.notes = resp.filter((note) => {
+                        let pieces = note.name.split(".");
+                        return allowed_files.includes(pieces[pieces.length - 1]);
+                    });
                 }
             }
 
