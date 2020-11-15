@@ -25,7 +25,9 @@ var app = new Vue({
                 let resp = JSON.parse(Http.response);
 
                 resp.forEach(cls => {
-                    cls.prettyName = [cls.name.slice(0, 4), " ", cls.name.slice(4)].join("");
+                    // cls.prettyName = [cls.name.slice(0, 4), " ", cls.name.slice(4)].join("");
+                    // Make this better
+                    cls.prettyName = cls.name;
                 });
 
                 this.classes = resp;
