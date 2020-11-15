@@ -1,0 +1,46 @@
+body {
+    margin: 0;
+    color: rgba(245, 245, 245, 0.644);
+    font-size: 18px;
+}
+
+#main-title {
+    color: rgba(245, 245, 245, 0.76);
+}
+
+#intro {
+    margin-bottom: 3em;
+}
+
+#content {
+    background-color: #452c54;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+
+    align-content: center;
+}
+
+.container {
+    width: 40%;
+    margin-left: 30%;
+    margin-right: 30%;
+
+    padding-top: 10%;
+}
+
+.classes-list {
+    margin-top: 0;
+}
+
+.class-item {
+    margin-bottom: 1em;
+    list-style: none;
+}
+
+.class-item:hover {
+    color: rgba(245, 245, 245, 0.801);
+    cursor: pointer;
+    text-decoration: underline;
+}
+
