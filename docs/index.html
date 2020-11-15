@@ -15,15 +15,16 @@
       <h1 class="main-title">Luke's Notes</h1>
       <p id="intro">These are Luke's notes for school. You can use them. They may be incomplete, wrong, stupid, or missing.</p>
 
-      <ul class="classes-list">
-        <li class="class-item clickable" v-for="cls in classes" @click="setActiveClass(cls)">{{ cls }}</li>
+      <p v-if="loadingClasses">Loading classes...</p>
+      <ul v-else class="classes-list">
+        <li class="class-item clickable" v-for="cls in classes" @click="setActiveClass(cls)">{{ cls.prettyName }}</li>
       </ul>
     </div>
 
     <div v-if="notes.length != 0" class="container">
       <hr class="divider">
 
-      <h1 class="main-title">Notes for {{ activeClass }}</h1>
+      <h1 class="main-title">Notes for {{ activeClass.prettyName }}</h1>
       <ul class="notes-list">
 
         <ul v-for="note in notes" class="download-link-list">
@@ -31,7 +32,7 @@
           <li class="download-link note-item">{{ note.name }}</li>
 
           <li class="download-link clickable">
-            <a  :href="note.html_url">Preview</a>
+            <a target="_blank" :href="note.html_url">Preview</a>
           </li>
 
           <li class="download-link clickable">

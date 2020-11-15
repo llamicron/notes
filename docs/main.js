@@ -7,22 +7,37 @@ const token = ["7b", "b6", "0a", "c2", "76", "fc", "5e", "e9", "8e", "e3", "d0",
 var app = new Vue({
     el: "#content",
     data: {
-        classes: ["PHYS 1444", "CSE 1325", "CSE 2315", "MATH 2425"],
+        classes: [],
         // This is the current set of active notes
         // clicking a class will populate this with that classes notes
-        activeClass: "",
-        notes: []
+        activeClass: {},
+        notes: [],
+        loadingClasses: true,
     },
     methods: {
+        getClassList() {
+            const Http = new XMLHttpRequest();
+            Http.open("GET", url_base);
+            Http.setRequestHeader("Authorization", "token " + token.join(""));
+            Http.send();
+            Http.onreadystatechange = (e) => {
+                let resp = JSON.parse(Http.response);
+
+                resp.forEach(cls => {
+                    cls.prettyName = [cls.name.slice(0, 4), " ", cls.name.slice(4)].join("");
+                });
+
+                this.classes = resp;
+                this.loadingClasses = false;
+            }
+        },
+
         setActiveClass(cls) {
-            // With a space
             this.activeClass = cls;
-            // Now remove the space
-            cls = cls.replace(" ", "");
 
             const Http = new XMLHttpRequest();
-            let url = url_base + cls + url_end;
-            Http.open("GET", url);
+            Http.open("GET", cls.url);
+
             Http.setRequestHeader("Authorization", "token " + token.join(""));
 
             Http.send();
@@ -38,5 +53,8 @@ var app = new Vue({
             }
 
         }
+    },
+    mounted() {
+        this.getClassList();
     }
 })
