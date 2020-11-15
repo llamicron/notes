@@ -1,10 +1,11 @@
 body {
     margin: 0;
     color: rgba(245, 245, 245, 0.644);
+    background-color: #452c54;
     font-size: 18px;
 }
 
-#main-title {
+.main-title {
     color: rgba(245, 245, 245, 0.76);
 }
 
@@ -13,7 +14,7 @@ body {
 }
 
 #content {
-    background-color: #452c54;
+    /* background-color: #452c54; */
     height: 100vh;
     width: 100vw;
     position: absolute;
@@ -33,14 +34,43 @@ body {
     margin-top: 0;
 }
 
+.notes-list {
+    list-style: none;
+}
+
+.note-item {
+    font-weight: 900;
+    margin-bottom: 2em;
+}
+
+li.download-link {
+    margin-right: 1em;
+    display: inline;
+}
+
+.download-link-list {
+    padding-left: 0;
+    margin-top: 5px;
+    margin-bottom: 1em;
+}
+
+li.download-link a {
+    color: inherit;
+    text-decoration: none;
+}
+
 .class-item {
     margin-bottom: 1em;
     list-style: none;
 }
 
-.class-item:hover {
+.clickable:hover {
     color: rgba(245, 245, 245, 0.801);
     cursor: pointer;
     text-decoration: underline;
+}
+
+.divider {
+    border: 1px solid rgba(245, 245, 245, 0.295);
 }
 
