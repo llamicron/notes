@@ -28,6 +28,24 @@ body {
     align-content: center;
 }
 
+#quirkyImage {
+    float: right;
+}
+
+@media (min-width:946px) {
+    @media (max-width:1264px) {
+        #quirkyImage {
+            display: none;
+        }
+    }
+}
+
+@media (max-width:455px) {
+    #quirkyImage {
+        display: none;
+    }
+}
+
 .container {
     width: 40%;
     margin-left: 30%;
