@@ -3,7 +3,9 @@ const url_base = "https://api.github.com/repos/llamicron/notes/contents/classes/
 const url_end = "?recursive=1";
 // I know, I know, this isn't secure. I don't care.
 const token = ["7b", "b6", "0a", "c2", "76", "fc", "5e", "e9", "8e", "e3", "d0", "09", "ab", "aa", "ef", "85", "ac", "14", "3f", "0f"];
-const allowed_files = ["pdf", "md"]
+const allowed_files = ["pdf", "md"];
+
+
 
 var app = new Vue({
     el: "#content",
@@ -58,6 +60,27 @@ var app = new Vue({
                 }
             }
 
+        },
+
+        loadNotePdf(note) {
+            var loadingTask = pdfjsLib.getDocument(note.download_url);
+            loadingTask.promise.then(function(pdf) {
+                pdf.getPage(1).then(function(page) {
+                    var scale = 1.5;
+                    var viewport = page.getViewport({ scale: scale, });
+
+                    var canvas = document.getElementById('pdf');
+                    var context = canvas.getContext('2d');
+                    canvas.height = viewport.height;
+                    canvas.width = viewport.width;
+
+                    var renderContext = {
+                        canvasContext: context,
+                        viewport: viewport,
+                    };
+                    page.render(renderContext);
+                });
+            });
         }
     },
     mounted() {

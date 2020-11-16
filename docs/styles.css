@@ -7,6 +7,10 @@ body {
     font-weight: 500;
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
 .main-title {
     color: rgba(245, 245, 245, 0.76);
 }
@@ -38,6 +42,10 @@ body {
         margin-left: 10%;
         margin-right: 10%;
     }
+}
+
+.pdf-container {
+    margin-left: 10%;
 }
 
 .classes-list {
@@ -85,8 +93,9 @@ li.download-link a {
 }
 
 ::selection {
-background: #ffb7b7; /* WebKit/Blink Browsers */
+    background: #ffb7b7; /* WebKit/Blink Browsers */
 }
+
 ::-moz-selection {
-background: #ffb7b7; /* Gecko Browsers */
+    background: #ffb7b7; /* Gecko Browsers */
 }

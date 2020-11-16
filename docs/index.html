@@ -32,7 +32,8 @@
           <li class="download-link note-item">{{ note.name }}</li>
 
           <li class="download-link clickable">
-            <a target="_blank" :href="note.html_url">Preview</a>
+            <!-- <a target="_blank" :href="note.html_url">Preview</a> -->
+            <a target="_blank" @click="loadNotePdf(note)">Preview</a>
           </li>
 
           <li class="download-link clickable">
@@ -43,8 +44,13 @@
 
       </ul>
     </div>
+
+    <div class="pdf-container">
+      <canvas id="pdf"></canvas>
+    </div>
   </div>
 
+  <script src="pdf.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
   <script src="main.js"></script>
 </body>
