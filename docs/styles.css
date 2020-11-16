@@ -3,6 +3,8 @@ body {
     color: rgba(245, 245, 245, 0.644);
     background-color: #452c54;
     font-size: 18px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 500;
 }
 
 .main-title {
@@ -26,8 +28,16 @@ body {
     width: 40%;
     margin-left: 30%;
     margin-right: 30%;
-
+    
     padding-top: 10%;
+}
+
+@media (max-width:720px) {
+    .container {
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
 }
 
 .classes-list {
@@ -74,3 +84,9 @@ li.download-link a {
     border: 1px solid rgba(245, 245, 245, 0.295);
 }
 
+::selection {
+background: #ffb7b7; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+background: #ffb7b7; /* Gecko Browsers */
+}
