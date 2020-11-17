@@ -62,6 +62,21 @@ body {
     }
 }
 
+#githubIcon {
+    width: 30px;
+    position: absolute;
+    left: 30px;
+    top: 30px;
+    cursor: pointer;
+    transition: all 0.1s ease-in;
+}
+
+#githubIcon:hover {
+    width: 35px;
+    left: 27.5px;
+    top: 27.5px;
+}
+
 .pdf-container {
     margin-left: 10%;
 }
@@ -98,6 +113,14 @@ li.download-link a {
 .class-item {
     margin-bottom: 1em;
     list-style: none;
+    position: relative;
+    width: fit-content;
+    transition: all 0.1s ease-in;
+}
+
+.selected-class-item {
+    background-color: #ffb7b7;
+    color: black !important;
 }
 
 .clickable:hover {

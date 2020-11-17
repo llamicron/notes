@@ -81,6 +81,10 @@ var app = new Vue({
                     page.render(renderContext);
                 });
             });
+        },
+
+        openGithub() {
+            window.open("https://github.com/llamicron/notes", "_blank");
         }
     },
     mounted() {

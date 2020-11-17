@@ -10,8 +10,10 @@
 
 <body>
   <div id="content">
+    <img @click="openGithub()" src="https://www.flaticon.com/svg/static/icons/svg/25/25231.svg" id="githubIcon" alt="github">
     <img src="camera.jpg" alt="Just a quirky image, doesn't mean anything" id="quirkyImage">
 
+    <!-- Class list -->
     <div class="container">
 
       <h1 class="main-title">Luke's Notes</h1>
@@ -19,10 +21,13 @@
 
       <p v-if="loadingClasses">Loading classes...</p>
       <ul v-else class="classes-list">
-        <li class="class-item clickable" v-for="cls in classes" @click="setActiveClass(cls)">{{ cls.prettyName }}</li>
+        <div v-for="cls in classes">
+          <li class="class-item clickable" :class="{ 'selected-class-item': activeClass.name == cls.name }" @click="setActiveClass(cls)">{{ cls.prettyName }}</li>
+        </div>
       </ul>
     </div>
 
+    <!-- Notes list -->
     <div v-if="notes.length != 0" class="container">
       <hr class="divider">
 
@@ -47,6 +52,7 @@
       </ul>
     </div>
 
+    <!-- Notes preview -->
     <div class="pdf-container">
       <canvas id="pdf"></canvas>
     </div>
