@@ -66,7 +66,7 @@ var app = new Vue({
             var loadingTask = pdfjsLib.getDocument(note.download_url);
             loadingTask.promise.then(function(pdf) {
                 pdf.getPage(1).then(function(page) {
-                    var scale = 1.5;
+                    var scale = 1.2;
                     var viewport = page.getViewport({ scale: scale, });
 
                     var canvas = document.getElementById('pdf');
