@@ -62,6 +62,17 @@ var app = new Vue({
 
         },
 
+
+        previewNote(note) {
+            // If the note is a PDF, render and display the first page
+            // If it's markdown, send them to github for it to display
+            if (note.name.endsWith(".md")) {
+                window.open(note.html_url, "_blank");
+            } else {
+                this.loadNotePdf(note);
+            }
+        },
+
         loadNotePdf(note) {
             var loadingTask = pdfjsLib.getDocument(note.download_url);
             loadingTask.promise.then(function(pdf) {
