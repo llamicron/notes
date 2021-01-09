@@ -15,6 +15,9 @@ var app = new Vue({
         // clicking a class will populate this with that classes notes
         activeClass: {},
         notes: [],
+        searchTerm: "",
+        searchResults: [],
+        fuse: {},
         loadingClasses: true,
     },
     methods: {
@@ -60,9 +63,30 @@ var app = new Vue({
                         let pieces = note.name.split(".");
                         return allowed_files.includes(pieces[pieces.length - 1]);
                     });
+                    this.initializeFuse();
                 }
             }
 
+        },
+
+        resetSearch() {
+            this.searchResults = this.notes;
+        },
+
+        initializeFuse() {
+            this.resetSearch();
+            this.fuse = new Fuse(this.notes, {
+                keys: ["name", "path"]
+            });
+        },
+
+        search() {
+            if (this.searchTerm == "") {
+                this.resetSearch();
+            } else {
+                this.searchResults = this.fuse.search(this.searchTerm).map(obj => obj.item);
+            }
+            console.log(this.searchResults);
         },
 
 
@@ -106,7 +130,13 @@ var app = new Vue({
             UIkit.notification("URL Copied");
         }
     },
+
     mounted() {
         this.getClassList();
+    },
+
+
+    watch: {
+        searchTerm: function () { this.search() }
     }
 })

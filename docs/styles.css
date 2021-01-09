@@ -73,6 +73,11 @@
     }
 }
 
+.uk-input {
+    background-color: unset !important;
+    color: rgba(245, 245, 245, 0.644) !important;
+}
+
 #githubIcon {
     width: 30px;
     position: absolute;
