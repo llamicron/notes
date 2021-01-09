@@ -99,6 +99,11 @@ var app = new Vue({
 
         openGithub() {
             window.open("https://github.com/llamicron/notes", "_blank");
+        },
+
+        shareNote(note) {
+            navigator.clipboard.writeText(note.download_url);
+            UIkit.notification("URL Copied");
         }
     },
     mounted() {

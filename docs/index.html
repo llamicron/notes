@@ -5,6 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Luke's Notes</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+  <!-- UIkit CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.9/dist/css/uikit.min.css" />
   <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -28,28 +31,30 @@
     </div>
 
     <!-- Notes list -->
-    <div v-if="notes.length != 0" class="container">
+    <!-- <div v-if="notes.length != 0" class="container"> -->
+    <div class="container">
+
       <hr class="divider">
 
       <h1 class="main-title">Notes for {{ activeClass.prettyName }}</h1>
-      <ul class="notes-list">
 
-        <ul v-for="note in notes" class="download-link-list">
+      <dl class="uk-description-list">
+        <div v-for="note in notes">
 
-          <li class="download-link note-item">{{ note.name }}</li>
-
-          <li class="download-link clickable">
-            <!-- <a target="_blank" :href="note.html_url">Preview</a> -->
-            <a target="_blank" @click="previewNote(note)">Preview</a>
-          </li>
-
-          <li class="download-link clickable">
-            <a  :href="note.download_url">Download</a>
-          </li>
-
-        </ul>
-
-      </ul>
+          <dt class="note-name">{{ note.name }}</dt>
+          <dd class="note-options">
+            <div>
+              <div class="uk-button-group">
+                <button @click="previewNote(note)" class="uk-button uk-button-small uk-button-secondary"><i class="fas fa-eye"></i></button>
+                <a :href="note.download_url">
+                  <button class="uk-button uk-button-small uk-button-secondary"><i class="fas fa-download"></i></button>
+                </a>
+                <button @click="shareNote(note)" class="uk-button uk-button-small uk-button-secondary"><i class="fas fa-share"></i></button>
+              </div>
+            </div>
+          </dd>
+        </div>
+      </dl>
     </div>
 
     <!-- Notes preview -->
@@ -58,6 +63,9 @@
     </div>
   </div>
 
+  <!-- UIkit JS -->
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.9/dist/js/uikit.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.9/dist/js/uikit-icons.min.js"></script>
   <script src="pdf.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
   <script src="main.js"></script>
