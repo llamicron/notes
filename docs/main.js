@@ -1,5 +1,5 @@
 // Append the class name with no spaces (ie. PHYS1444) to get all the files in that dir
-const url_base = "https://api.github.com/repos/llamicron/notes/contents/classes/";
+const url_base = "https://api.github.com/repos/llamicron/notes/contents/notes/";
 const url_end = "?recursive=1";
 // I know, I know, this isn't secure. I don't care.
 const token = ["7b", "b6", "0a", "c2", "76", "fc", "5e", "e9", "8e", "e3", "d0", "09", "ab", "aa", "ef", "85", "ac", "14", "3f", "0f"];
@@ -99,6 +99,11 @@ var app = new Vue({
 
         openGithub() {
             window.open("https://github.com/llamicron/notes", "_blank");
+        },
+
+        shareNote(note) {
+            navigator.clipboard.writeText(note.download_url);
+            UIkit.notification("URL Copied");
         }
     },
     mounted() {
