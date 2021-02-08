@@ -28,6 +28,13 @@
       <p id="intro">These are Luke's notes for school. You can use them. They may be incomplete, wrong, stupid, or
         missing.</p>
 
+      <p id="intro">If the note is a PDF you can preview the first page with the <i
+        class="fas fa-eye"></i> button and download with the <i class="fas fa-download"></i> button.</p>
+
+      <p id="intro">If the note is a .md file, just view it with the <i
+        class="fas fa-eye"></i> button. </p>
+        
+
       <p v-if="loadingClasses">Loading classes...</p>
       <ul v-else class="classes-list">
         <div v-for="cls in classes">
