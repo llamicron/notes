@@ -1,4 +1,4 @@
-# L5 - [topic]
+# L5 - Bit Shifting
 Luke Sweeney
 
 CSE 2312
