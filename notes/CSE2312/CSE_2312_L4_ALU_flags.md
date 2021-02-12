@@ -1,4 +1,4 @@
-# L4 - [topic]
+# L4 - ALU Flags
 Luke Sweeney
 
 CSE 2312
