@@ -11,6 +11,10 @@
     display: none;
 }
 
+.uk-accordion-title {
+    color: rgba(245, 245, 245, 0.644);
+}
+
 .main-title {
     color: rgba(245, 245, 245, 0.76);
 }
