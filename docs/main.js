@@ -1,7 +1,7 @@
 // Temporary, replace with the one on master
-const INDEX_URL = "https://raw.githubusercontent.com/llamicron/notes/rust/notes.index";
-const PREVIEW_BASE = "https://github.com/llamicron/notes/tree/rust/notes/";
-const DOWNLOAD_BASE = "https://github.com/llamicron/notes/raw/rust/notes/";
+const INDEX_URL = "https://raw.githubusercontent.com/llamicron/notes/master/notes.index";
+const PREVIEW_BASE = "https://github.com/llamicron/notes/tree/master/notes/";
+const DOWNLOAD_BASE = "https://github.com/llamicron/notes/raw/master/notes/";
 const BAD_FILES = [".gitkeep", ".DS_Store"];
 // I know, I know, this isn't secure. I don't care.
 const token = ["7b", "b6", "0a", "c2", "76", "fc", "5e", "e9", "8e", "e3", "d0", "09", "ab", "aa", "ef", "85", "ac", "14", "3f", "0f"];
