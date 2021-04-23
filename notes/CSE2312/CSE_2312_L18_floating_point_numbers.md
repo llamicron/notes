@@ -3,6 +3,8 @@
 | Apr 8, 2021  | CSE 2312 | Dr. Losh | UT Arlington | Luke Sweeney |
 | ------------ | -------- | -------- | ------------ | ------------ |
 
+Note: look in `llamicron/cse2312` for an example in `C` about how numbers are incoded.
+
 # Floating Point Numbers
 
 Floating point numbers are different from ints. In `C` we have the `float` type
